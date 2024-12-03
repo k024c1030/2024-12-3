@@ -1,9 +1,11 @@
 from flask import Flask, request, redirect
 import os
+
 app = Flask(__name__)
 
 # データの保存先 --- (*1)
 DATAFILE = './board-data.txt'
+
 
 # ルートにアクセスしたとき --- (*2)
 @app.route('/')
@@ -28,6 +30,7 @@ def index():
     </body></html>
     """.format(msg)
 
+
 # POSTメソッドで/writeにアクセスしたとき --- (*5)
 @app.route('/write', methods=['POST'])
 def write():
@@ -38,6 +41,10 @@ def write():
             f.write(msg)
     # ルートページにリダイレクト --- (*7)
     return redirect('/')
+
+
+#変数を残すテスト
+a = 100
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
