@@ -45,6 +45,15 @@ def write():
 
 #変数を残すテスト
 a = 100
+#書き込む
+with open("a.txt", 'wt') as f:
+    f.write(str(a))
+#読み込む
+with open("a.txt", 'rt') as f:
+    read_data = f.read() + "abc"
+    print(read_data)
+
+#変数を残すテスト
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
